@@ -22,7 +22,7 @@
 type ElementOf<T extends readonly any[]> = T extends readonly (infer E)[] ? E : never
 type Primitive = string | number | symbol
 
-type TupleToObject<T extends readonly (Primitive)[]> = {
+export type TupleToObject<T extends readonly (Primitive)[]> = {
   [Value in T[number]]: Value;
 }
 
