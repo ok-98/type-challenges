@@ -19,8 +19,12 @@
 */
 
 /* _____________ Your Code Here _____________ */
+type ElementOf<T extends readonly any[]> = T extends readonly (infer E)[] ? E : never
+type Primitive = string | number | symbol
 
-type TupleToObject<T extends readonly any[]> = any
+type TupleToObject<T extends readonly (Primitive)[]> = {
+  [Value in T[number]]: Value;
+}
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
