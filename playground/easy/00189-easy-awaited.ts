@@ -21,8 +21,9 @@
 */
 
 /* _____________ Your Code Here _____________ */
+type Promise2<T> = Promise<T> | { then: (onfilfilled: (arg: T) => any) => any }
 
-type MyAwaited<T> = any
+type MyAwaited<T> = T extends Promise2<infer R> ? MyAwaited<R> : T
 
 /* _____________ Test Cases _____________ */
 import type { Equal, Expect } from '@type-challenges/utils'
